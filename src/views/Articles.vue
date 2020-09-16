@@ -7,58 +7,58 @@
                     <!-- 文章头部 -->
                     <header class="entry-header">
                         <!-- 标题输出 -->
-                        <h1 class="entry-title">看一遍闭着眼都会安装Lua了</h1>
+                        <h1 class="entry-title">{{blogDetail.blogTitle}}</h1>
                         <hr>
                         <div class="breadcrumbs">
-                            <div id="crumbs">最后更新时间：2020年04月21日</div>
+                            <div id="crumbs">最后更新时间：{{blogDetail.releaseDate}}</div>
                         </div>
                     </header>
                     <!-- 正文输出 -->
-                    <div class="entry-content">
-                        <p>@[TOC]</p>
-                        <h4 id="引言：">引言：</h4>
-                        <p>Lua 是一种轻量小巧的脚本语言，能为应用程序提供灵活的扩展和定制功能。</p>
-                        <h4 id="lua-应用场景">Lua 应用场景</h4>
-                        <ul>
-                            <li>游戏开发</li>
-                            <li>独立应用脚本</li>
-                            <li>Web 应用脚本</li>
-                            <li>扩展和数据库插件如：MySQL Proxy 和 MySQL WorkBench</li>
-                            <li>安全系统，如入侵检测系统</li>
-                        </ul>
-                        <hr>
-                        <h4 id="安装">安装</h4>
-                        <pre><code> curl -R -O http://www.lua.org/ftp/lua-5.3.5.tar.gz #下载
- tar zxf lua-5.3.5.tar.gz #解压
- cd lua-5.3.3 #进入解压文件夹
- make linux test #安装&amp;测试</code></pre>
-                        <hr>
-                        <h4 id="安装过程可能出现的问题">安装过程可能出现的问题</h4>
-                        <ol>
-                            <li>没有gcc命令(lua是C语言编写的，安装时依赖gcc)
-                                <blockquote>
-                                    <p>使用<code>which gcc</code>命令可以查看是否有gcc，如果没有使用下面命令进行安装gcc 与gcc-c++，</p>
-                                    <pre><code>yum -y install gcc
-yum -y install gcc-c++</code></pre>
-                                </blockquote>
-                            </li>
-                        </ol>
-                        <hr>
-                        <ol start="2">
-                            <li>致命错误：readline/readline.h：没有那个文件或目录
-                                <blockquote>
-                                    <p>执行如下命令即可:</p>
-                                    <pre><code>yum install libtermcap-devel ncurses-devel libevent-devel readline-devel</code></pre>
-                                </blockquote>
-                            </li>
-                        </ol>
-                        <hr>
-                        <h4 id="安装成功验证">安装成功验证</h4>
-                        <blockquote>
-                            <p>执行<code>lua -v</code>,出现如下信息代表安装成功<br/>
-                                Lua 5.1.4 Copyright (C) 1994-2008 Lua.org, PUC-Rio</p>
-                        </blockquote>
-                        <pre><code>lua -v</code></pre>
+                    <div class="entry-content" v-html="blogDetail.blogContent">
+<!--                        <p>@[TOC]</p>-->
+<!--                        <h4 id="引言：">引言：</h4>-->
+<!--                        <p>Lua 是一种轻量小巧的脚本语言，能为应用程序提供灵活的扩展和定制功能。</p>-->
+<!--                        <h4 id="lua-应用场景">Lua 应用场景</h4>-->
+<!--                        <ul>-->
+<!--                            <li>游戏开发</li>-->
+<!--                            <li>独立应用脚本</li>-->
+<!--                            <li>Web 应用脚本</li>-->
+<!--                            <li>扩展和数据库插件如：MySQL Proxy 和 MySQL WorkBench</li>-->
+<!--                            <li>安全系统，如入侵检测系统</li>-->
+<!--                        </ul>-->
+<!--                        <hr>-->
+<!--                        <h4 id="安装">安装</h4>-->
+<!--                        <pre><code> curl -R -O http://www.lua.org/ftp/lua-5.3.5.tar.gz #下载-->
+<!-- tar zxf lua-5.3.5.tar.gz #解压-->
+<!-- cd lua-5.3.3 #进入解压文件夹-->
+<!-- make linux test #安装&amp;测试</code></pre>-->
+<!--                        <hr>-->
+<!--                        <h4 id="安装过程可能出现的问题">安装过程可能出现的问题</h4>-->
+<!--                        <ol>-->
+<!--                            <li>没有gcc命令(lua是C语言编写的，安装时依赖gcc)-->
+<!--                                <blockquote>-->
+<!--                                    <p>使用<code>which gcc</code>命令可以查看是否有gcc，如果没有使用下面命令进行安装gcc 与gcc-c++，</p>-->
+<!--                                    <pre><code>yum -y install gcc-->
+<!--yum -y install gcc-c++</code></pre>-->
+<!--                                </blockquote>-->
+<!--                            </li>-->
+<!--                        </ol>-->
+<!--                        <hr>-->
+<!--                        <ol start="2">-->
+<!--                            <li>致命错误：readline/readline.h：没有那个文件或目录-->
+<!--                                <blockquote>-->
+<!--                                    <p>执行如下命令即可:</p>-->
+<!--                                    <pre><code>yum install libtermcap-devel ncurses-devel libevent-devel readline-devel</code></pre>-->
+<!--                                </blockquote>-->
+<!--                            </li>-->
+<!--                        </ol>-->
+<!--                        <hr>-->
+<!--                        <h4 id="安装成功验证">安装成功验证</h4>-->
+<!--                        <blockquote>-->
+<!--                            <p>执行<code>lua -v</code>,出现如下信息代表安装成功<br/>-->
+<!--                                Lua 5.1.4 Copyright (C) 1994-2008 Lua.org, PUC-Rio</p>-->
+<!--                        </blockquote>-->
+<!--                        <pre><code>lua -v</code></pre>-->
 
                     </div>
                     <!-- 文章底部 -->
@@ -67,7 +67,7 @@ yum -y install gcc-c++</code></pre>
                             <!-- 阅读次数 -->
                             <div class="post-like">
                                 <i class="iconfont iconeyes"></i>
-                                <span class="count">685</span>
+                                <span class="count">{{blogDetail.viewCount}}</span>
                             </div>
                             <!-- 分享按钮 -->
                             <!--                        <div class="post-share">-->
@@ -101,7 +101,7 @@ yum -y install gcc-c++</code></pre>
                             <!-- 文章标签 -->
                             <div class="post-tags">
                                 <i class="iconfont iconcategory"></i>
-                                <router-link to="/category/web">Web</router-link>
+                                <router-link :to="`/category/${blogDetail.categoryId}`">{{blogDetail.categoryName}}</router-link>
                             </div>
                         </footer>
                     </section-title>
@@ -129,13 +129,14 @@ yum -y install gcc-c++</code></pre>
     import Banner from '@/components/banner'
     import sectionTitle from '@/components/section-title'
     import comment from '@/components/comment'
-    import {fetchComment} from '../api'
+    import {fetchComment,fetchBlogDetail} from '../api'
     export default {
         name: 'articles',
         data(){
           return{
               showDonate: false,
-              comments: []
+              comments: [],
+              blogDetail:{}
           }
         },
         components: {
@@ -143,17 +144,34 @@ yum -y install gcc-c++</code></pre>
             sectionTitle,
             comment
         },
+        computed: {
+            getBlogId() {
+                return this.$route.params.words
+            }
+        },
         methods: {
-          getComment(){
-              fetchComment().then(res => {
-                  this.comments = res.data || []
-              }).catch(err => {
-                  console.log(err)
-              })
-          }
+            //查询blog详情
+            getBlogDetail(){
+                let par = {blogId:this.$route.params.id}
+                fetchBlogDetail(par).then(res=> {
+                    this.blogDetail = res.data
+                }).catch(err =>{
+
+                })
+            },
+
+            //获取评论数据
+            getComment(){
+                fetchComment().then(res => {
+                    this.comments = res.data || []
+                }).catch(err => {
+                    console.log(err)
+                })
+            }
         },
         created() {
             this.getComment()
+            this.getBlogDetail()
         }
     }
 </script>
@@ -326,3 +344,4 @@ yum -y install gcc-c++</code></pre>
         }
     }
 </style>
+1111
